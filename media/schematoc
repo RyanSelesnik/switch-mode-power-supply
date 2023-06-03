@@ -1,0 +1,21 @@
+
+screenshot_to_png() {
+    local screenshot_file_name="$1"
+    local screenshot_dir="$HOME/Desktop"
+    
+    if [[ -z "$screenshot_file_name" ]]; then
+        echo "Please provide a file name for the screenshot."
+        return 1
+    fi
+    
+    # Check if the screenshot file exists
+    if [[ ! -f "$screenshot_dir/$screenshot_file_name" ]]; then
+        echo "Screenshot file not found: $screenshot_file_name"
+        return 1
+    fi
+    
+    # Save the screenshot as a PNG file in the current directory
+    sips -s format png "$screenshot_dir/$screenshot_file_name" --out ./"$screenshot_file_name.png"
+    echo "Screenshot saved as: $screenshot_file_name.png"
+}
+
