@@ -24,9 +24,9 @@ The following components have been selected for the SMPS design, along with a br
 
 The estimated duty cycle (D) can be determined using the following formula:
 
-$$D = \frac{V_{\text{in}}}{V_{\text{out}}} \qquad \text{(1)}$$
+$$D = \frac{V_{\text{in}}}{V_{\text{out}} \cdot \eta} \qquad \text{(1)}$$
 
-Given the values Vin = 10V and Vout = 5V, and assuming an efficiency of 90% (0.90), a reasonable choice for a Buck Converter [1], the calculated duty cycle is 0.56.
+Where $\eta$ is the efficiency. Given the values Vin = 10V and Vout = 5V, and assuming an efficiency of 90% ( \eta = 0.90), a reasonable choice for a Buck Converter [1], the calculated duty cycle is 0.56.
 
 The required switching frequency (fsw) can be derived from the voltage-current relationship of the inductor. Since we know that during the off time (Toff), VL = Vout, we can express it as follows:
 
