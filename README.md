@@ -1,5 +1,6 @@
 # Switch-mode Power Supply
 
+By Ryan Selesnik and Rachel Edelstein
 
 This design was inspired by [a YouTube video by FesZ Electronics](https://www.youtube.com/watch?v=2LlT0-S9KvI&t=17s). 
 
@@ -29,15 +30,15 @@ Given the values Vin = 10V and Vout = 5V, and assuming an efficiency of 90% (0.9
 
 The required switching frequency (fsw) can be derived from the voltage-current relationship of the inductor. Since we know that during the off time (Toff), VL = Vout, we can express it as follows:
 
-$$V_{\text{out}} = L \cdot I \cdot (1 - D) \cdot T_{\text{p}} \qquad \text{(2)}$$
+$$V_{\text{out}} = L \cdot \frac{\Delta I}{(1 - D) \cdot T_{\text{p}}} \qquad \text{(2)}$$
 
 This implies:
 
-$$f_{\text{sw}} = \frac{V_{\text{out}} \cdot (1 - D)}{L \cdot I} \qquad \text{(3)}$$
+$$f_{\text{sw}} = \frac{V_{\text{out}} \cdot (1 - D)}{L \cdot \Delta I} \qquad \text{(3)}$$
 
 For an estimated current (I) range of 20-40% of the load current, which is 500 mA [1], assuming 20%, we can calculate the switching frequency as:
 
-$$f_{\text{sw}} = 5 \cdot (1 - 0.56) \cdot 330 \cdot 0.2 \cdot 0.5 = 67 \text{ kHz} \qquad \text{(4)}$$
+$$f_{\text{sw}} = \frac{5 \cdot (1 - 0.56)}{330 \cdot 0.2 \cdot 0.5} = 67 \text{ kHz} \qquad \text{(4)}$$
 
 Considering that the Arduino Nano Every has a maximum switching frequency of 62.5 kHz, we choose fsw = 62.5 kHz.
 
@@ -45,7 +46,8 @@ Considering that the Arduino Nano Every has a maximum switching frequency of 62.
 
 To achieve an output ripple of 1%, the capacitance (C) can be calculated using the following equation:
 
-$$C = \frac{I \cdot 8 \cdot f_{\text{sw}} \cdot V}{0.01 \cdot V_{\text{out}}} = 0.18 \cdot 62.5k \cdot 0.01 \cdot 5 = 4 \text{ μF} \qquad \text{(5)}$$
+$$C = \frac{\Delta I}{8 \cdot f_{sw}\cdot \Delta V }= \frac{0.1}{8(62.5\text{k})(0.01)(5)}=4\ \mu F
+ \qquad \text{(5)}$$
 
 This value represents the minimum required capacitance, and choosing 10 μF will provide more than sufficient smoothing [1].
 
