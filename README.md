@@ -1,3 +1,17 @@
+# Table of Contents
+
+1. [Switch-mode Power Supply](#switch-mode-power-supply)
+   - [Components](#components)
+   - [Calculation of Duty Cycle and Switching Frequency](#calculation-of-duty-cycle-and-switching-frequency)
+   - [Calculation of Output Ripple and Capacitance](#calculation-of-output-ripple-and-capacitance)
+   - [Simulation Results](#simulation-results)
+2. [Prototype Power Supply](#prototype-power-supply)
+   - [Laboratory Results](#laboratory-results)
+   - [Power Supply Specifications](#power-supply-specifications)
+   - [Discussion](#discussion)
+   - [Conclusions](#conclusions)
+3. [References](#references)
+
 # Switch-mode Power Supply
 
 By Ryan Selesnik and Rachel Edelstein
@@ -7,6 +21,8 @@ This design was inspired by [a YouTube video by FesZ Electronics](https://www.yo
 This project involves the design and implementation of a switch-mode power supply (SMPS) for a 5V USB-based device used in a portable radio. The circuit, depicted in Figure 1, is specifically designed to maximize efficiency and is based on the Buck Converter topology.
 
 ![Figure 1: Simulation schematic diagram](./media/simulation_schematic.png)
+
+*Figure 1: Simulation schematic diagram* 
 
 ### Components
 
@@ -57,19 +73,24 @@ This value represents the minimum required capacitance, and choosing 10 μF will
 Using the circuit depicted in Figure 1 above, simulations were conducted to evaluate the functionality of the circuit. The expected load current is approximately 500mA, which is successfully achieved, as demonstrated in Figure 2 below. Furthermore, the output voltage is expected to be around 5V with a maximum allowable ripple of 1%. By employing a 10μF capacitor, the ripple can be determined from the graph below, yielding a value of 0.48%, surpassing the specified requirement.
 
 ![Figure 2. Simulated results](./media/sim_results.png)
+
+*Figure 2. Simulated results*
+
 ## Prototype Power Supply
 
 Below are the circuit diagram and picture of the final prototype in Figure 3 and Figure 4 respectively. Since the construction of the circuit in LTspice and the initial simulations, the circuit has been enhanced by the addition of certain components to reduce parasitic effects and output ripple. This circuit also incorporates a feedback mechanism to regulate the output voltage.
 
-**Figure 3: Final prototype schematic diagram**
 
 ![Figure 3: Final prototype schematic diagram](./media/schematic.png)
 
-**Figure 4: A labelled diagram of the final prototype power supply with 12V DC input**
+*Figure 3: Final prototype schematic diagram*
+
 
 ![Figure 4: A labelled diagram of the final prototype power supply with 12V DC input](./media/prototype.png)
 
-### 3.1 Laboratory Results
+*Figure 4: A labelled diagram of the final prototype power supply with 12V DC input*
+
+### Laboratory Results
 
 The following photographs in Figure 5 represent the laboratory results obtained before and after introducing improvements to the circuit, such as ceramic capacitors to decrease the output ripple and a boot resistor to reduce switching noise [3]. Table 1 below provides a comparison between the expected and actual results.
 
@@ -89,7 +110,7 @@ The following photographs in Figure 5 represent the laboratory results obtained 
 | Output voltage (V) | 5.00             | 5.10                     |
 | Efficiency (%) | 89               | 83                       |
 
-### 3.2 Power Supply Specifications
+###  Power Supply Specifications
 
 Table 2 illustrates the overall performance and rated measurements of the prototype. It can be observed that the 5V DC output requirement is met, as shown in Figure 5.2 in the Laboratory Results section.
 
@@ -105,7 +126,7 @@ Table 2 illustrates the overall performance and rated measurements of the protot
 | Rated power (W)    | 2.5               |
 | Output voltage ripple (%) | 0.8           |
 
-### 4. Discussion
+### Discussion
 
 In the simulation, a single capacitor of 10μF was used to decrease the output ripple. However, in the prototype, a larger capacitance of 17μF was required to achieve the desired ripple of 1%. Additionally, switching noise from the MOSFET appears on the output, which was not expected since it was absent in the simulation. The noise is present in the prototype due to parasitic effects, such as wire inductance.
 
@@ -117,7 +138,7 @@ A strength of the circuit is the implemented feedback mechanism, which adjusts t
 
 To improve the prototype, current-limiting logic could be implemented in software.
 
-### 5. Conclusions
+### Conclusions
 
 The design and implementation of this power supply required extensive calculations and testing to meet the requirements of a 5V DC power supply with a ripple of less than 1%. The inclusion of ceramic capacitors helped decrease the ripple to the desired specification, while the feedback mechanism aided in regulating the output. Multiple trade-offs were made to balance efficiency with unwanted parasitic effects.
 
