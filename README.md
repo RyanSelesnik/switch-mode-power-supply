@@ -1,6 +1,6 @@
 # Switch-mode Power Supply
 
-By @RyanSelesnik and @racheledelstein
+By Ryan Selesnik and Rachel Edelstein
 
 This design was inspired by [a YouTube video by FesZ Electronics](https://www.youtube.com/watch?v=2LlT0-S9KvI&t=17s). 
 
