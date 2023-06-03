@@ -12,7 +12,7 @@ This project involves the design and implementation of a switch-mode power suppl
 
 The following components have been selected for the SMPS design, along with a brief explanation of their purpose and rationale:
 
-1. Arduino - This component provides the necessary PWM (Pulse Width Modulation) signal for switching operations.
+1. Arduino Nano Every - This component provides the necessary PWM (Pulse Width Modulation) signal for switching operations.
 2. P-channel MOSFET - It serves as the high-side switch in the circuit, enabling control of the power flow.
 3. NPN BJT - The NPN BJT is utilized to drive the MOSFET, with R3 acting as a pull-up resistor.
 4. Push-pull amplifier - The push-pull amplifier consists of two BJTs that alternate between absorbing and supplying current. This configuration helps reduce the rise and fall time of the switching signal, thereby minimizing total power dissipation in the MOSFET.
