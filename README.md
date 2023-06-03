@@ -29,7 +29,7 @@ Given the values Vin = 10V and Vout = 5V, and assuming an efficiency of 90% (0.9
 
 The required switching frequency (fsw) can be derived from the voltage-current relationship of the inductor. Since we know that during the off time (Toff), VL = Vout, we can express it as follows:
 
-$$V_{\text{out}} = L \cdot I \cdot (1 - D) \cdot T_{\text{p}} \qquad \text{(2)}$$
+$$V_{\text{out}} = L \cdot \frac{\delta I}{(1 - D) \cdot T_{\text{p}}} \qquad \text{(2)}$$
 
 This implies:
 
