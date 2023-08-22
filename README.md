@@ -33,8 +33,6 @@ The following components have been selected for the SMPS design, along with a br
 3. NPN BJT - The NPN BJT is utilized to drive the MOSFET, with R3 acting as a pull-up resistor.
 4. Push-pull amplifier - The push-pull amplifier consists of two BJTs that alternate between absorbing and supplying current. This configuration helps reduce the rise and fall time of the switching signal, thereby minimizing total power dissipation in the MOSFET.
 5. Schottky diode - The Schottky diode provides a low voltage drop path for current when the MOSFET is turned off. This choice of diode reduces power dissipation in the circuit.
-6. Inductor and Capacitor - The inductor and capacitor work together to drop the voltage and store it, respectively. This mechanism contributes to minimizing heat dissipation in the circuit.
-7. Capacitor - This capacitor is employed to smooth the output voltage by reducing ripple.
 
 ### Calculation of Duty Cycle and Switching Frequency
 
